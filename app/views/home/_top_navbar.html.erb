@@ -5,8 +5,11 @@
         <a class="navbar-brand" href="#">Have Questions? Ask Me</a>
       </div>
 
-      <form class="navbar-form navbar-right" >
-        <a href="#" class="btn btn-success btn-sm" role="button" data-toggle="modal" data-target="#new-question-modal">Ask Question</a>
-      </form>
+      <ul class="nav navbar-nav navbar-right" >
+        <li>
+          <div class="navbar-text"><%= current_user_email %></div>
+        </li>
+        <li><form><a href="#" class="btn btn-success navbar-btn btn-sm" role="button" data-toggle="modal" data-target="#new-question-modal">Ask Question</a></form></li>
+      </ul>
     </div>
   </nav>
