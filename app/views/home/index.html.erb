@@ -1,47 +1,27 @@
+<% @questions.each do |q| %>
 <ul class="media-list">
   <li class="media media-middle">
     <div class="media-left">
       <a href="#">
-        <img class="media-object" width="50px" height="50px" src="/images/user-icon.png" alt="Generic placeholder image">
+        <img class="media-object media-middle" src="<%= q.gravatar %>" alt="Generic placeholder image">
       </a>
     </div>
-    <div class="media-body">
-      <h4 class="media-heading">abc@gmail.com asked:</h4>
-      What is the capital of Sweden?
+    <div class="media-body media-middle">
+      <h4 class="media-heading"><%= q.email %> asked:</h4>
+      <div><%= time_ago_in_words q.created_at %> ago</div>
+      <%= q.body %>
     </div>
-    <div class="media-right">
-      <a href="/questions/1" class="btn btn-success btn-sm" role="button">View Answer</a>
-    </div>
-  </li>
-  <li  class="media media-middle">
-    <div class="media-left">
-      <a href="#">
-        <img class="media-object" width="50px" height="50px" src="/images/user-icon.png" alt="Generic placeholder image">
-      </a>
-    </div>
-    <div class="media-body">
-      <h4 class="media-heading">xyz@gmail.com asked:</h4>
-      What is zorbing?
-    </div>
-    <div class="media-right">
-      <a href="/questions/2" class="btn btn-success btn-sm" role="button">View Answer</a>
-    </div>
-  </li>
-  <li  class="media media-middle">
-    <div class="media-left">
-      <a href="#">
-        <img class="media-object" width="50px" height="50px" src="/images/user-icon.png" alt="Generic placeholder image">
-      </a>
-    </div>
-    <div class="media-body">
-      <h4 class="media-heading">abc@gmail.com asked:</h4>
-      What are the 2 most scary words you've ever heard?
-    </div>
-    <div class="media-right">
-      <a href="/questions/3" class="btn btn-success btn-sm" role="button">View Answer</a>
-    </div>
+      <div class="media-right">
+        <a href="<%= question_path(q) %>" class="btn btn-success btn-sm" role="button">View Answers</a>
+      </div>
+    
   </li>
 </ul>
+<% end %>
+
+<% if @questions.empty? %>
+  <div class="alert alert-info">Nothing here yet, be the first to ask?</div>
+<% end %>
 
 
       
